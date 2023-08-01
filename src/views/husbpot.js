@@ -1,3 +1,3 @@
 module.exports = {
-    hapikey: '58cca946-c135-4329-b13f-7b008025248d'
+    hapikey: 'db2bdb5f-af9a-4fef-96f5-f8bfe5b34756'
 }

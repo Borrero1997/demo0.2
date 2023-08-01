@@ -1,7 +1,7 @@
-const { Router } = require("express");
-const router = Router();
 const axios = require('axios');
 const  { hapikey } = require('../views/husbpot');
+const { Router } = require("express");
+const router = Router();
 
 var admin = require("firebase-admin");
 
@@ -50,6 +50,20 @@ router.get("/edit-contact/:id", async (req, res) => {
 
 router.post("/update-contact/:id", async (req, res) => {
   const { firstname, lastname, email, phone } = req.body;
+
+  axios.get(`https://api.hubapi.com/contacts/v1/contact/vid/42318614/profile/email/${email}/?hapikey=${hapikey}`,
+  
+  {
+    headers: {
+      'Authorization': `Bearer pat-na1-2743f05f-785b-41f5-bb84-3dc6da1e0d81`,
+      'Content-Type': 'application/json'
+    }
+  },
+  (err, data) => {
+    // Handle the API response
+  }
+);
+  
   const { id } = req.params;
   await db
     .collection("contacts")
